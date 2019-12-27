@@ -29,7 +29,11 @@
 					<td th:text="${p.brand}" style="padding: 5px;"></td>
 					<td th:text="${p.madeIn}" style="padding: 5px;"></td>
 					<td th:text="${p.price}" style="padding: 5px;"></td>
-					<td></td>
+					<td>
+						<a th:href="@{'/edit/' + ${p.id}}">Edit</a>
+						<span>  </span>
+						<a th:href="@{/delete/} + ${p.id}">Delete</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
