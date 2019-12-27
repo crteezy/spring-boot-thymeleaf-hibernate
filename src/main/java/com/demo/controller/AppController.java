@@ -18,16 +18,16 @@ public class AppController {
 	private ProductService service;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String viewProductsPage(Model model) {
+	public String displayViewProductsPage(Model model) {
 		List<Product> products = service.getAllProducts();
 		model.addAttribute("products", products);
 		return "/html/index";
 	}
 	
 	@RequestMapping(value = "/addNew", method = RequestMethod.GET)
-	public String createProductsPage(Model model) {
+	public String displayCreateProductsPage(Model model) {
 		Product product = new Product();
 		model.addAttribute("product", product);
-		return "/html/index2";
+		return "/html/new_product";
 	}
 }
