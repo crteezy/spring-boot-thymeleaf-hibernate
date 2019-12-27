@@ -8,4 +8,6 @@ CREATE TABLE `product_schema`.`product` (
   `price` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`id`));
 
+INSERT INTO `product_schema`.`product` (`name`, `brand`, `made_in`, `price`) VALUES ('Galaxy S8+', 'Samsung', 'Korea', '800.00');
+
   

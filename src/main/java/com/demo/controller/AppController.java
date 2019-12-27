@@ -21,6 +21,13 @@ public class AppController {
 	public String viewProductsPage(Model model) {
 		List<Product> products = service.getAllProducts();
 		model.addAttribute("products", products);
-		return "index";
+		return "/html/index";
+	}
+	
+	@RequestMapping(value = "/addNew", method = RequestMethod.GET)
+	public String createProductsPage(Model model) {
+		Product product = new Product();
+		model.addAttribute("product", product);
+		return "/html/index2";
 	}
 }
