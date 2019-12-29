@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,11 +26,19 @@ public class AppController {
 //		return "/html/index";
 //	}
 	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public ModelAndView displayViewProductsPage() {
+//		List<Product> products = service.getAllProducts();
+//		ModelAndView view = new ModelAndView("/html/index");
+//		view.addObject("products", products);
+//		return view;
+//	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView displayViewProductsPage() {
+	public ModelMap displayViewProductsPage() {
 		List<Product> products = service.getAllProducts();
-		ModelAndView view = new ModelAndView("/html/index");
-		view.addObject("products", products);
+		ModelMap view = new ModelMap("/html/index");
+		view.put("products", products);
 		return view;
 	}
 	
