@@ -9,7 +9,7 @@ function getAllProcucts(){
 		url:"/getAllProducts",
 		type:"GET",
 		data:null,
-		contentType: "application/json",
+		
 		dataType:"json",
 		async:true,
 		success:function(response){
@@ -57,17 +57,22 @@ function getAllProcucts(){
 //var price = $("#price").val();
 
 //var data = "name="+name+"&brand="+brand+"&madeIn="+madeIn+"&price="+price;
-//var data = '{"name"='+name+"&brand="+brand+"&madeIn="+madeIn+"&price="+price;
 
 function saveWithAjaxPost(){
 	
-	var params = $("#productForm").serialize();
+	var name = $("#name").val();
+	var brand = $("#brand").val();
+	var madeIn = $("#madeIn").val();
+	var price = $("#price").val();
+
+	var params = "name="+name+"&brand="+brand+"&madeIn="+madeIn+"&price="+price;
+	
+//	var params = $("#productForm").serialize();
 	
 	$.ajax({
 		
 		url:"/saveWithAjaxPost",
 		type:"POST",
-		contentType:"application/json",
 		data:params,
 		async:true,
 		dataType:"json",
