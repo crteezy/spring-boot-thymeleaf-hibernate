@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,13 +42,28 @@ public class ProductController {
 		model.put("products", products);
 		return model;
 	}
-	
-//	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET)
-//	@ResponseBody
-//	public ModelAndView getAllProducts() {
-//		ModelAndView view = new ModelAndView("/html/new_product");
-//		List<Product> products = service.getAllProducts();
-//		view.addObject("products", products);
-//		return view;
-//	}
+/*	
+	@RequestMapping(value = "/saveWithAjaxPost", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelMap saveWithAjaxPost(@ModelAttribute("product") Product product) {
+//	public ModelMap saveWithAjaxPost(@RequestParam String name, @RequestParam String brand, @RequestParam String madeIn, @RequestParam double price) {
+		ModelMap model = new ModelMap();
+//		Product product = new Product();
+//		product.setName(name);
+//		product.setBrand(brand);
+//		product.setMadeIn(madeIn);
+//		product.setPrice(price);
+		service.saveProduct(product);
+		model.put("MESSAGE", "Success");
+		return model;
+	}
+*/	
+	@RequestMapping(value = "/saveWithAjaxPost", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelMap saveWithAjaxPost(@ModelAttribute Product product) {
+		ModelMap model = new ModelMap();
+		service.saveProduct(product);
+		model.put("MESSAGE", "Success");
+		return model;
+	}
 }

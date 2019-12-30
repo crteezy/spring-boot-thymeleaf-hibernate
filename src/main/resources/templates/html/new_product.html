@@ -15,30 +15,31 @@
 		<h1>Create New Product</h1>
 		<br />
 
-		<form action="#" th:action="@{/save}" th:object="${product}"
+		<form action="#" id="productForm" th:action="@{/save}" th:object="${product}"
 			method="POST">
 			<table>
 				<tbody>
 					<tr>
 						<td>Name:</td>
-						<td><input type="text" th:field="*{name}" /></td>
+						<td><input id="name" type="text" th:field="*{name}" /></td>
 					</tr>
 					<tr>
 						<td>Brand:</td>
-						<td><input type="text" th:field="*{brand}" /></td>
+						<td><input id="brand" type="text" th:field="*{brand}" /></td>
 					</tr>
 					<tr>
 						<td>Made In:</td>
-						<td><input type="text" th:field="*{madeIn}" /></td>
+						<td><input id="madeIn" type="text" th:field="*{madeIn}" /></td>
 					</tr>
 					<tr>
 						<td>Price:</td>
-						<td><input type="text" th:field="*{price}" /></td>
+						<td><input id="price" type="text" th:field="*{price}" /></td>
 					</tr>
 				</tbody>
 			</table>
 			<br />
 			<button type="submit">Save</button>
+			<button type="button" onclick="saveWithAjaxPost();">Save with Ajax Post</button>
 		</form>
 		
 		<br />

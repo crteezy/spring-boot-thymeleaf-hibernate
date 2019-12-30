@@ -50,3 +50,33 @@ function getAllProcucts(){
 		}
 	});
 }
+
+//var name = $("#name").val();
+//var brand = $("#brand").val();
+//var madeIn = $("#madeIn").val();
+//var price = $("#price").val();
+
+//var data = "name="+name+"&brand="+brand+"&madeIn="+madeIn+"&price="+price;
+//var data = '{"name"='+name+"&brand="+brand+"&madeIn="+madeIn+"&price="+price;
+
+function saveWithAjaxPost(){
+	
+	var params = $("#productForm").serialize();
+	
+	$.ajax({
+		
+		url:"/saveWithAjaxPost",
+		type:"POST",
+		contentType:"application/json",
+		data:params,
+		async:true,
+		dataType:"json",
+		success:function(response){
+			$('#productsListDiv').empty();
+			getAllProcucts();
+		},
+		error:function(response){
+			alert(response.message);
+		}
+	});
+}
