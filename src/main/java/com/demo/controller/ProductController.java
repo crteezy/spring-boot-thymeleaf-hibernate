@@ -1,12 +1,16 @@
 package com.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.domain.Product;
 import com.demo.service.ProductService;
@@ -28,4 +32,22 @@ public class ProductController {
 		service.deleteProduct(id);
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelMap getAllProducts() {
+		ModelMap model = new ModelMap();
+		List<Product> products = service.getAllProducts();
+		model.put("products", products);
+		return model;
+	}
+	
+//	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET)
+//	@ResponseBody
+//	public ModelAndView getAllProducts() {
+//		ModelAndView view = new ModelAndView("/html/new_product");
+//		List<Product> products = service.getAllProducts();
+//		view.addObject("products", products);
+//		return view;
+//	}
 }

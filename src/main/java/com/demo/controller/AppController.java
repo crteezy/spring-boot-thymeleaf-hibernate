@@ -26,28 +26,13 @@ public class AppController {
 //		return "/html/index";
 //	}
 	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public ModelAndView displayViewProductsPage() {
-//		List<Product> products = service.getAllProducts();
-//		ModelAndView view = new ModelAndView("/html/index");
-//		view.addObject("products", products);
-//		return view;
-//	}
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelMap displayViewProductsPage() {
+	public ModelAndView displayViewProductsPage() {
 		List<Product> products = service.getAllProducts();
-		ModelMap view = new ModelMap("/html/index");
-		view.put("products", products);
+		ModelAndView view = new ModelAndView("/html/index");
+		view.addObject("products", products);
 		return view;
 	}
-	
-//	@RequestMapping(value = "/addNew", method = RequestMethod.GET)
-//	public String displayCreateProductsPage(Model model) {
-//		Product product = new Product();
-//		model.addAttribute("product", product);
-//		return "/html/new_product";
-//	}
 	
 	@RequestMapping(value = "/addNew", method = RequestMethod.GET)
 	public ModelAndView displayCreateProductsPage() {
