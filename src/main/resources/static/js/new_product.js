@@ -9,7 +9,6 @@ function getAllProcucts(){
 		url:"/getAllProducts",
 		type:"GET",
 		data:null,
-		
 		dataType:"json",
 		async:true,
 		success:function(response){
@@ -50,13 +49,6 @@ function getAllProcucts(){
 		}
 	});
 }
-
-//var name = $("#name").val();
-//var brand = $("#brand").val();
-//var madeIn = $("#madeIn").val();
-//var price = $("#price").val();
-
-//var data = "name="+name+"&brand="+brand+"&madeIn="+madeIn+"&price="+price;
 
 function saveWithAjaxPost(){
 	
